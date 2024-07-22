@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>CodeLap Project</title>
+    <link rel="stylesheet" href="assets/css/chatBot.css" />
+    <link rel="stylesheet" href="assets/css/animate.css" />
+    <link rel="stylesheet" href="assets/css/site.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Lato|Roboto+Slab"
+    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans|Nanum+Gothic&display=swap" />
+    <link
+            rel="stylesheet"
+            href="assets/assets/css/bootstrap.min.css"
+            type="text/css"
+            media="screen"
+    />
+    <link
+            rel="stylesheet"
+            href="assets/assets/css/animate.css"
+            type="text/css"
+            media="screen"
+    />
+    <link
+            rel="stylesheet"
+            href="assets/css/jquerysctipttop.css"
+            type="text/css"
+    />
+    <link rel="stylesheet" href="assets/css/style1.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/animate-header.css" />
+
+    <!-- JQUERY PLUGIN -->
+    <script src="../../../use.fontawesome.com/1b98f46f85.js"></script>
+    <script type="text/javascript" src="assets/js/jQuery-latest.js"></script>
+    <script type="text/javascript" src="assets/js/ajax-jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/weatherAPI.js"></script>
+
+
+<!--    <link-->
+<!--            rel="stylesheet"-->
+<!--            type="text/css"-->
+<!--            charset="UTF-8"-->
+<!--            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"-->
+<!--    />-->
+<!--    <link-->
+<!--            rel="stylesheet"-->
+<!--            type="text/css"-->
+<!--            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"-->
+<!--    />-->
+
+    <!-- mailchimp -->
+    <link
+            href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css"
+            rel="stylesheet"
+            type="text/css"
+    />
+
+    <!-- Google Adsense -->
+    <script
+            data-ad-client="ca-pub-2641264776845324"
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+
+    <!-- Google AMP Adsense -->
+    <script
+            async
+            custom-element="amp-auto-ads"
+            src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"
+    ></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=UA-200608746-1"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="/assets/js/chatBot.js"></script>
+    <!-- Kakao Map API   -->
+
+
+
+    <meta
+            name="google-site-verification"
+            content="fhyTdtqD_RstBjnzobeQOmCoX6O14NcjX5oEcvaBsMw"
+    />
+    <style>
+      body {
+        font-family: 'Noto Sans', sans-serif;
+      }
+    </style>
+
+
+  </head>
+  <body>
+
+
+<!--  <noscript-->
+<!--  ><iframe-->
+<!--          src="https://www.googletagmanager.com/ns.html?id=GTM-MFQ3JJS"-->
+<!--          height="0"-->
+<!--          width="0"-->
+<!--          style="display: none; visibility: hidden"-->
+<!--  ></iframe-->
+<!--  ></noscript>-->
+<!--  <amp-auto-ads type="adsense" data-ad-client="ca-pub-2641264776845324">-->
+<!--  </amp-auto-ads>-->
+
+<!--   <div class="se-pre-con"></div>-->
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+<script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=eb95fb927ec9290105912c5170200fe2&libraries=services,clusterer"></script>
+<script type="text/javascript">window.kakao=window.kakao||{},window.kakao.maps=window.kakao.maps||{},window.daum&&window.daum.maps?window.kakao.maps=window.daum.maps:(window.daum=window.daum||{},window.daum.maps=window.kakao.maps),function(){function a(){if(o.length){n(u[o.shift()],a).start()}else e()}function n(a,n){var e=document.createElement("script");return e.onload=n,e.onreadystatechange=function(){/loaded|complete/.test(this.readyState)&&n()},{start:function(){e.src=a||"",
+          document.getElementsByTagName("head")[0].appendChild(e),e=null}}}function e(){for(;i[0];)i.shift()();t.readyState=2}var t=kakao.maps=kakao.maps||{};if(void 0===t.readyState)t.onloadcallbacks=[],t.readyState=0;else if(2===t.readyState)return;t.URI_FUNC={ROADMAP:function(a,n,e){return"map.daumcdn.net/map_k3f_prod/bakery/image_map_png/PNGSD01/v22_ke29h/"+e+"/"+n+"/"+a+".png"},HYBRID:function(a,n,e){
+    return"map.daumcdn.net/map_k3f_prod/bakery/image_map_png/PNGSD_SKYH01/v21_kf6dl/"+e+"/"+n+"/"+a+".png"},ROADVIEW:function(a,n,e){return"map.daumcdn.net/map_k3f_prod/bakery/image_map_png/PNGSD_RV01/v14_cfznf/"+e+"/"+n+"/"+a+".png"},BICYCLE:function(a,n,e){return"map.daumcdn.net/map_k3f_prod/bakery/image_map_png/PNGSD_BIKE01/v09_oni84/"+e+"/"+n+"/"+a+".png"},USE_DISTRICT:function(a,n,e){return"map.daumcdn.net/map_k3f_prod/bakery/image_map_png/PNGSD_CAD01/v14_7fwx1/"+e+"/"+n+"/"+a+".png"},
+  SR:function(a,n,e){return"map.daumcdn.net/map_k3f_prod/bakery/image_map_png/PNGSD_SR01/v27_3a1w4/"+e+"/"+n+"/"+a+".png"},BBOUND:function(a,n,e){return"map.daumcdn.net/map_k3f_prod/bakery/image_map_png/PNGSD_BBOUND01/v12_1kwma/"+e+"/"+n+"/"+a+".png"},HBOUND:function(a,n,e){return"map.daumcdn.net/map_k3f_prod/bakery/image_map_png/PNGSD_HBOUND01/v13_4ewrz/"+e+"/"+n+"/"+a+".png"},TRAFFIC:function(a,n,e){return"r.maps.daum-img.net/mapserver/file/realtimeroad/L"+e+"/"+n+"/"+a+".png"},
+  ROADMAP_HD:function(a,n,e){return"map.daumcdn.net/map_k3f_prod/bakery/image_map_png/PNG01/v28_znu9w/"+e+"/"+n+"/"+a+".png"},HYBRID_HD:function(a,n,e){return"map.daumcdn.net/map_k3f_prod/bakery/image_map_png/PNG_SKYH01/v20_fwtym/"+e+"/"+n+"/"+a+".png"},ROADVIEW_HD:function(a,n,e){return"map.daumcdn.net/map_k3f_prod/bakery/image_map_png/PNG_RV01/v14_yicqp/"+e+"/"+n+"/"+a+".png"},BICYCLE_HD:function(a,n,e){
+    return"map.daumcdn.net/map_k3f_prod/bakery/image_map_png/PNG_BIKE01/v09_bp3hx/"+e+"/"+n+"/"+a+".png"},USE_DISTRICT_HD:function(a,n,e){return"map.daumcdn.net/map_k3f_prod/bakery/image_map_png/PNG_CAD01/v17_m8ooj/"+e+"/"+n+"/"+a+".png"},SR_HD:function(a,n,e){return"map.daumcdn.net/map_k3f_prod/bakery/image_map_png/PNGSD_SR01/v27_3a1w4/"+e+"/"+n+"/"+a+".png"},BBOUND_HD:function(a,n,e){return"map.daumcdn.net/map_k3f_prod/bakery/image_map_png/PNG_BBOUND01/v12_idqc4/"+e+"/"+n+"/"+a+".png"},
+  HBOUND_HD:function(a,n,e){return"map.daumcdn.net/map_k3f_prod/bakery/image_map_png/PNG_HBOUND01/v13_aqaay/"+e+"/"+n+"/"+a+".png"},TRAFFIC_HD:function(a,n,e){return"r.maps.daum-img.net/mapserver/file/realtimeroad_hd/L"+e+"/"+n+"/"+a+".png"}},t.VERSION={ROADMAP_SUFFIX:"",SKYVIEW_VERSION:"160114",SKYVIEW_HD_VERSION:"160107"},t.RESOURCE_PATH={ROADVIEW_AJAX:"//t1.daumcdn.net/roadviewjscore/core/css3d/200204/standard/1580795088957/roadview.js",
+  ROADVIEW_CSS:"//t1.daumcdn.net/roadviewjscore/core/openapi/standard/240118/roadview.js"};for(var r,p="https:"==location.protocol?"https:":"http:",m="",d=document.getElementsByTagName("script"),_=d.length;r=d[--_];)if(/\/(beta-)?dapi\.kakao\.com\/v2\/maps\/sdk\.js\b/.test(r.src)||/\/map_js_init\/open4\.test\.js\b/.test(r.src)||/\/map_js_init\/open4\.cbt\.js\b/.test(r.src)){m=r.src;break}d=null;var i=t.onloadcallbacks,o=["v3"],c="",u={v3:p+"//t1.daumcdn.net/mapjsapi/js/main/4.4.15/kakao.js",
+  services:p+"//t1.daumcdn.net/mapjsapi/js/libs/services/1.0.2/services.js",drawing:p+"//t1.daumcdn.net/mapjsapi/js/libs/drawing/1.2.6/drawing.js",clusterer:p+"//t1.daumcdn.net/mapjsapi/js/libs/clusterer/1.0.9/clusterer.js"},s=function(a){var n={};return a.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(a,e,t){n[e]=t}),n}(m);c=s.appkey,c&&(t.apikey=c),t.version="4.4.15";var g=s.libraries;if(g&&(o=o.concat(g.split(","))),"false"!==s.autoload){for(var _=0,f=o.length;_<f;_++)!function(a){
+  a&&document.write('<script charset="UTF-8" src="'+a+'"><\/script>')}(u[o[_]]);t.readyState=2}t.load=function(n){switch(i.push(n),t.readyState){case 0:t.readyState=1,a();break;case 2:e()}}}();</script>
+<!--    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>-->
+<!--    <script type="text/javascript" src="assets/js/wow.js"></script>-->
+<!--    <script type="text/javascript" src="assets/js/wow-anim.js"></script>-->
+<!--<script-->
+<!--        type="text/javascript"-->
+<!--        src="assets/assets/js/form-validator.min.js"-->
+<!--&gt;</script>-->
+<!--<script-->
+<!--        type="text/javascript"-->
+<!--        src="assets/assets/js/contact-form-script.js"-->
+<!--&gt;</script>-->
+<!--<script type="text/javascript" src="assets/js/jquery.scrolly.js"></script>-->
+<!--<script-->
+<!--        type="text/javascript"-->
+<!--        src="assets/js/jquery.fancybox8cbb.js?v=2.1.5"-->
+<!--&gt;</script>-->
+<!--<script-->
+<!--        type="text/javascript"-->
+<!--        src="assets/js/jquery.fancybox-buttons3447.js?v=1.0.5"-->
+<!--&gt;</script>-->
+<!--<script-->
+<!--        type="text/javascript"-->
+<!--        src="assets/js/jquery.fancybox-thumbsf2ad.js?v=1.0.7"-->
+<!--&gt;</script>-->
+<!--<script-->
+<!--        type="text/javascript"-->
+<!--        src="assets/js/jquery.fancybox-mediac924.js?v=1.0.6"-->
+<!--&gt;</script>-->
+<!--<script-->
+<!--        type="text/javascript"-->
+<!--        src="assets/js/jquery.fancybox.pack8cbb.js?v=2.1.5"-->
+<!--&gt;</script>-->
+<!--<script-->
+<!--        type="text/javascript"-->
+<!--        src="assets/js/jquery.mixitup.min.js"-->
+<!--&gt;</script>-->
+<!--<script-->
+<!--        type="text/javascript"-->
+<!--        src="assets/js/jquery.counterup.min.js"-->
+<!--&gt;</script>-->
+<!--<script type="text/javascript" src="assets/js/main.js"></script>-->
+<!--<script type="text/javascript" src="assets/js/map.js"></script>-->
+<!--&lt;!&ndash;<script&ndash;&gt;-->
+<!--&lt;!&ndash;        type="text/javascript"&ndash;&gt;-->
+<!--&lt;!&ndash;        src="assets/js/skillbar-animation.js"&ndash;&gt;-->
+<!--&lt;!&ndash;&gt;</script>&ndash;&gt;-->
+<!--<script type="text/javascript" src="assets/js/animation.js"></script>-->
+<!--&lt;!&ndash;<script type="text/javascript" src="assets/js/particles1.js"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;<script type="text/javascript" src="assets/js/app.js"></script>&ndash;&gt;-->
+
+<!--<script-->
+<!--        type="text/javascript"-->
+<!--        src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-613243888805a7f1"-->
+<!--&gt;</script>-->
+<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>

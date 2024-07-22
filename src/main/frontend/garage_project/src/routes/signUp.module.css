@@ -1,0 +1,172 @@
+
+/*.formDefault  [type=text], .formDefault [type=email], .formDefault [type=password], .formDefault textarea {*/
+/*    width: 100%;*/
+/*    border-bottom: 1px solid #8d8c8c;*/
+/*    color: #282828;*/
+/*    padding: 8px 0;*/
+/*    margin-bottom: 51px;*/
+/*}*/
+
+select {
+    display: inline-block;
+    margin-right: 10%;
+    width: 40%;
+}
+p {
+    display: inline-block;
+    margin-left: 30%;
+}
+
+.formContactWrapper {
+    width: 500px;
+    position: relative;
+    left: 25px;
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.formContactWrapper h1{
+    margin-bottom: 20%;
+    text-align: center;
+
+}
+.formContactWrapper input label{
+    text-align: left;
+}
+
+.formDefault input[type="text"],.formDefault input[type="password"], .formDefault textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    box-shadow: none;
+    background: 0 0;
+    border: none;
+    outline: 0;
+    font-size: 12px;
+    letter-spacing: .38em;
+    border-radius: 0;
+    width: 100%;
+    border-bottom: 1px solid #8d8c8c;
+    color: #282828;
+    padding: 8px 0;
+    margin-bottom: 51px;
+}
+
+
+*, :after, :before {
+    box-sizing: border-box;
+}
+
+input[type="text"],input[type="password"] {
+    appearance: menulist-button;
+    background-image: none !important;
+    background-color: light-dark(rgb(232, 240, 254), rgba(70, 90, 126, 0.4)) !important;
+    color: fieldtext !important;
+}
+
+
+
+input[type="text" i] {
+    padding-block: 1px;
+    padding-inline: 2px;
+}
+
+
+
+
+
+input[type="text"]{
+
+    text-rendering: auto;
+    color: fieldtext;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: auto;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    background-color: field;
+    margin: 0em;
+    padding: 1px 0px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-image: initial;
+    padding-block: 1px;
+    padding-inline: 2px;
+}
+
+.formDefault label {
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    display: block;
+    font-size: 12px;
+    letter-spacing: .38em;
+    margin: 8px 0 15px;
+    box-sizing: border-box;
+    cursor: default;
+    text-align: left;
+}
+.loginBtn {
+    width: 90%;
+    height: 50px;
+    line-height: 50px;
+    background-color: #38362f;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 16px;
+    padding: 0;
+    margin: 20px;
+    border: 0;
+    border-radius: 0;
+    outline: 0;
+    font-weight: 700;
+    letter-spacing: .06em;
+    overflow: hidden;
+    -webkit-transition: background-color .2s;
+    transition: background-color .2s;
+}
+button, html input[type=button], input[type=reset], input[type=submit] {
+    -webkit-appearance: none;
+    cursor: pointer;
+    border-radius: 0;
+}
+Form.Check{
+    display: inline-block;
+    width: 20%;
+}
+
+.mb3{
+    display: inline-block;
+}
+
+input[type="checkbox"]{
+    margin: 10%;
+}
+
+.checkBoxContainer{
+    text-align: center;
+    margin-top: 5%;
+    border: 1px dotted black;
+}
+
+.checkBoxDiv{
+    display: inline-block;
+    margin-top: 3%;
+    width: 25%;
+    text-align: center;
+}
+.checkBoxDiv label{
+
+    text-align: center;
+    font-weight: bolder;
+
+}

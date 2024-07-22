@@ -1,0 +1,490 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik:700&display=swap');
+
+.festival_info, .Eat_place_info, .market_info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    padding: 10px;
+    box-sizing: border-box;
+    transition: transform 0.5s ease;
+    flex-grow: 1;
+    border-radius: 0 0 5px 5px;
+}
+.mobileOnlyDetails {
+    display: none; /* 모바일 화면에서는 숨겨질 스타일 */
+}
+.festival_info:hover .festival_description,.market_description,.market_info:hover {
+    display: block;
+}
+.popular_box p {
+    margin: 5px 0;
+}
+.popular_box:hover .festival_description,.market_description .Eat_place_description{
+    max-height: 200px; /* 축제 내용이 확장되는 최대 높이 */
+    overflow-y: auto; /* 텍스트가 내용을 넘어갈 경우 스크롤바 추가 */
+}
+.popular_box:hover .hiddenOnHover {
+    max-height: 200px; /* 호버 시 텍스트가 확장되는 최대 높이 */
+    overflow-y: auto; /* 내용이 넘칠 경우 스크롤바 추가 */
+}
+
+@media (max-width: 768px) {
+    .popular_box {
+        width: 80%; /* 모바일에서는 너비 80%로 조절 */
+        margin: 5px auto; /* 상하 10px, 좌우 자동 */
+        height: 200px; /* 높이 조정 */
+
+    }
+    .randomButton,.moreButton {
+        display: none;
+    }
+    .popular_box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* 이미지를 비율유지하며 박스에 맞게 조정 */
+        border-radius: 5px; /* 이미지 모서리 둥글게 */
+    }
+}
+.popular_box {
+    /*display: flex;*/
+    align-items: center;
+    /*justify-content: center;*/
+    text-align: center;
+    /*flex: 0 0 calc(25% - 20px); !* 모든 박스가 동일한 비율로 나누어짐 *!*/
+    margin: 10px;
+    /*height: 250px;*/
+    box-sizing: border-box;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    transition: all .7s;
+    border-radius: 5px;
+    position: relative; /* 상대 위치 설정 */
+}
+.popular_box:hover {
+    transform: scale(1.1); /* 확대 효과 */
+    z-index: 10; /* 다른 요소 위에 위치 */
+    background-color: #D6EAF8;
+}
+.popular_box:not(:hover) {
+    transform: scale(0.9); /* 나머지 박스는 축소 효과 */
+    opacity: 0.8; /* 투명도를 줄여 다른 박스 강조 */
+}
+.popular_box:hover .festival_info,
+.popular_box:hover .Eat_place_info,
+.popular_box:hover .market_info {
+    bottom: 0; /* 마우스를 올렸을 때 화면 하단에 고정 */
+}
+
+.popular_boxes_container {
+    /*display: flex;*/
+    /*flex-direction: row; !* 가로 방향으로 박스 배치 *!*/
+    /*justify-content: center; !* 왼쪽 정렬로 변경 *!*/
+    width: 100%;
+    transition: transform 0.3s ease; /* 부드러운 전환 효과 */
+}
+.festival_description,.market_description,.Eat_place_description {
+    max-height: 0; /* 초기에 숨겨진 상태 */
+    overflow: hidden; /* 내용이 넘칠 경우 숨김 */
+    transition: max-height 0.3s ease; /* 부드러운 나타나기 효과 */
+}
+
+/* 마우스를 올렸을 때 축제 내용 표시 */
+.festival_info:hover .festival_description,.market_description,.market_info:hover {
+    display: block;
+}
+.popular_box:hover .festival_description,.market_description .Eat_place_description{
+    max-height: 200px; /* 축제 내용이 확장되는 최대 높이 */
+    overflow-y: auto; /* 텍스트가 내용을 넘어갈 경우 스크롤바 추가 */
+}
+.festival_name, .Eat_place_name, .market_name {
+    font-size: 14px; /* 일정한 크기로 설정 */
+    font-weight: bold; /* 글씨 굵기 */
+    margin-bottom: 10px; /* 아래 여백 */
+    transition: transform 0.5s ease; /* 슬라이드 모션 추가 */
+}
+
+.recommend {
+    padding-top: 90px;
+    width: 100%;
+    height: 500px;
+    background-image: linear-gradient(to bottom, #a6e1ec, #f1efe9) ;
+    margin: 0 auto;
+}
+
+.recommend_title_container {
+    display: flex;
+    flex-direction: column; /* 제목과 부제목을 세로로 배치 */
+    align-items: center; /* 세로 축 중앙 정렬 */
+    width: 100%; /* 전체 너비 사용 */
+    margin-bottom: 20px;
+}
+
+.recommend_main_title {
+    font-size: 24px; /* 주 제목 크기 */
+    font-weight: bold; /* 글씨 굵기 */
+    color: black; /* 글씨 색상 */
+    margin-right: 20px; /* 오른쪽 여백 */
+}
+
+.recommend_sub_title {
+    font-size: 16px; /* 부 제목 크기 */
+    color: black; /* 글씨 색상 */
+}
+
+.recommend_button_container {
+    float: left;
+    display: flex;
+    flex-direction: column; /* 세로 방향으로 박스 배치 */
+    justify-content: space-around;
+    width: 20%;
+    height: 250px;
+}
+
+.recommend_button_div {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    margin: 10px;
+    height: 250px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    font-size: inherit;
+    font-family: inherit;
+}
+
+.recommend_button {
+    font-weight: 600;
+    color: #382b22;
+    text-transform: uppercase;
+    padding: 1.25em 2em;
+    background: #fff0f0;
+    border: 2px solid #a6e1ec;
+    border-radius: 0.75em;
+    transform-style: preserve-3d;
+    transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background
+    150ms cubic-bezier(0, 0, 0.58, 1);
+}
+
+.recommend_button::before{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #a6e1ec;
+    border-radius: inherit;
+    box-shadow: 0 0 0 2px #a6e1ec, 0 0.625em 0 0 #a6e1ec;
+    transform: translate3d(0, 0.75em, -1em);
+    transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+
+.recommend_button:hover{
+    background: #ffe9e9;
+    transform: translate(0, 0.25em);
+}
+
+.recommend_button:hover::before{
+    box-shadow: 0 0 0 2px #ffe9e9, 0 0.5em 0 0 #ffe9e9;
+    transform: translate3d(0, 0.5em, -1em);
+}
+
+.recommend_button:active {
+    background: #ffe9e9;
+    transform: translate(0em, 0.75em);
+}
+
+.recommend_button:active::before {
+    box-shadow: 0 0 0 2px #a6e1ec, 0 0 #a6e1ec;
+    transform: translate3d(0, 0, -1em);
+}
+
+.recommend_boxes_container {
+    float: right;
+    display: flex;
+    flex-direction: row; /* 가로 방향으로 박스 배치 */
+    justify-content: space-around; /* 요소들 사이의 공간을 균등하게 배치 */
+    width: 80%;
+    transition: transform 0.3s ease; /* 부드러운 전환 효과 */
+}
+
+.recommend_box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1; /* 모든 박스가 동일한 비율로 나눠짐 */
+    margin: 10px;
+    height: 250px;
+    /*background-color: #2a99cc;*/
+    box-sizing: border-box;
+    transition: transform 0.3s ease; /* 부드러운 확대/축소 효과 */
+}
+
+.recommend_box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 이미지를 비율 유지하면서 박스에 가득 채우도록 설정 */
+    border-radius: 10px;
+}
+
+.recommend_box:hover {
+    transform: scale(1.1); /* 확대 효과 */
+    z-index: 10; /* 다른 요소 위에 위치 */
+}
+
+.recommend_box:not:hover {
+    transform: scale(0.9); /* 나머지 박스는 축소 효과 */
+    opacity: 0.8; /* 투명도를 줄여 다른 박스 강조 */
+}
+
+@media (max-width: 768px) {
+    .recommend_button {
+        margin-left: 20px;
+        font-size: 12px;
+    }
+
+
+}
+
+/*.InfoOverlay {*/
+/*    position: absolute;*/
+/*    !*bottom: ${props => props.show ? '0' : '-100%'};*!*/
+/*!
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    background-color: rgba(0, 0, 0, 0.5);*/
+
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    cursor: pointer;*/
+/*    transition: bottom 0.3s ease;*/
+/*}*/
+
+
+
+/* 맟춤 여행지 */
+.custom{
+    width: 100%;
+}
+
+.custom_title_container {
+    display: flex;
+    flex-direction: column; /* 가로 방향으로 박스 배치 */
+    justify-content: space-around; /* 요소들 사이의 공간을 균등하게 배치 */
+    /*float: ;*/
+    width: 100%;
+    transition: transform 0.3s ease; /* 부드러운 전환 효과 */
+    /*border: 5px solid black;*/
+    /*text-align: center;*/
+    /*padding-right: 750px;*/
+    /*align-items: center;*/
+}
+
+.custom_title {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    margin-right: 20px;
+    float: left;
+    text-align: left;
+    padding-left: 22%;
+    /*justify-content: center;*/
+}
+
+.custom_sub_title {
+    font-size: 16px;
+    color: black;
+    text-align: left;
+    padding-left: 22%;
+    width: 100%;
+    /*align-items: center;*/
+}
+
+.custom_button_container {
+    /*display: flex;*/
+    width: 100%;
+    /*border: 5px solid black;*/
+}
+
+.custom_button_div {
+    float: right;
+    /*border: 5px solid black;*/
+    width: 50%
+}
+
+.custom_button {
+    font-weight: 600;
+    color: #382b22;
+    text-transform: uppercase;
+    padding: 1.25em 2em;
+    background: #fff0f0;
+    border: 2px solid #a6e1ec;
+    border-radius: 0.75em;
+    transform-style: preserve-3d;
+    transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background
+    150ms cubic-bezier(0, 0, 0.58, 1);
+}
+
+.custom_button::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #a6e1ec;
+    border-radius: inherit;
+    box-shadow: 0 0 0 2px #a6e1ec, 0 0.625em 0 0 #a6e1ec;
+    transform: translate3d(0, 0.75em, -1em);
+    transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+
+.custom_button:hover{
+    background: #ffe9e9;
+    transform: translate(0, 0.25em);
+}
+
+.custom_button:hover::before{
+    box-shadow: 0 0 0 2px #ffe9e9, 0 0.5em 0 0 #ffe9e9;
+    transform: translate3d(0, 0.5em, -1em);
+}
+
+.custom_button:active {
+    background: #ffe9e9;
+    transform: translate(0em, 0.75em);
+}
+
+.custom_button:active::before{
+    box-shadow: 0 0 0 2px #a6e1ec, 0 0 #a6e1ec;
+    transform: translate3d(0, 0, -1em);
+}
+
+@media (max-width: 768px) {
+    .custom {
+        position: relative;
+    }
+    .custom_sub_title {
+        font-size: 14px;
+        align-items: center;
+    }
+
+    .custom_button {
+        /*float: right;*/
+        position: relative;
+        bottom: 0;
+        /*left: 50%;*/
+        /*transform: translateX(-50%);*/
+    }
+}
+
+.custom_boxes_container {
+    /*background: #41dfea;*/
+    display: flex;
+    flex-direction: row; /* 가로 방향으로 박스 배치 */
+    justify-content: center; /* 요소들 사이의 공간을 균등하게 배치 */
+    margin: 20px auto;
+    padding: 10px 0;
+    width: 80%;
+    transition: transform 0.3s ease; /* 부드러운 전환 효과 */
+}
+
+.custom_box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1; /* 모든 박스가 동일한 비율로 나누어짐*/
+    margin: 10px;
+    height: 250px;
+    background: rgba(125, 33, 143, 0.8);
+    box-sizing: border-box;
+    transition: transform 0.3s ease; /* 부드러운 확대/축소 효과 */
+}
+
+.custom_box:hover {
+    transform: scale(1.1); /* 확대 효과 */
+    z-index: 10; /* 다른 요소 위에 위치 */
+}
+
+.custom_box:not:hover {
+    transform: scale(0.9); /* 나머지 박스는 축소 효과 */
+    opacity: 0.8; /* 투명도를 줄여 다른 박스 강조 */
+}
+
+.custom_box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 이미지를 비율 유지하면서 박스에 가득 채우도록 설정 */
+}
+
+.chart {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    margin-top: 50px;
+    height: 300px;
+    margin-left: 100px;
+}
+
+.traffic_chart_title_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    /*border: 5px solid black;*/
+    /*float: left;*/
+    width: 50%;
+    height: 100%;
+
+}
+
+.traffic_chart {
+    /*border: 5px solid black;*/
+    height: 90%;
+    align-items: center;
+    align-content: center;
+    /*display: grid;*/
+}
+
+.search_chart_title_container {
+    /*border: 5px solid black;*/
+    /*float: right;*/
+    width: 50%;
+    height: 100%;
+}
+
+.search_chart {
+    /*border: 5px solid black;*/
+    height: 90%;
+}
+
+@media (max-width: 768px) {
+    .chart {
+        flex-direction: column; /* 세로 방향 배열 */
+        align-items: center; /* 세로축 중앙 정렬 */
+        margin-top: 400px;
+        margin-left: 20px;
+    }
+
+    .traffic_chart_title_container {
+        flex: none;
+        width: 80%;
+        margin: 40px auto;
+    }
+}

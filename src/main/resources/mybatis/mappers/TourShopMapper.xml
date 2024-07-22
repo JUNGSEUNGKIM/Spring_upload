@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.codelap_spring_project.repository.mybatis.TourShopMapper">
+
+    <resultMap id="shopResultMap" type="org.codelap_spring_project.domain.Tourshop">
+        <result property="shopId" column="shopId" />
+        <result property="tourTitle" column="tourTitle" />
+        <result property="content" column="content"  />
+        <result property="imagePath" column="imagePath" />
+        <result property="imageName" column="imageName" />
+    </resultMap>
+
+    <resultMap id="tourShopMainResultMap" type="org.codelap_spring_project.domain.TourshopMain">
+        <result property="shopId" column="shopId" />
+        <result property="imageName" column="imageName" />
+        <result property="tourTitle" column="tourTitle" />
+        <result property="content" column="content"  />
+        <result property="tourPrice" column="tourPrice" />
+        <result property="location" column="location" />
+        <result property="reviews_count" column="reviews_count" />
+    </resultMap>
+
+    <resultMap id="reviewResultMap" type="org.codelap_spring_project.domain.TourshopReview">
+        <result property="comment_id" column="comment_id" />
+        <result property="boarder_code" column="boarder_code" />
+        <result property="content" column="content" />
+        <result property="author" column="author" />
+        <result property="create_at" column="create_at"  />
+        <result property="parent_comment_id" column="parent_comment_id" />
+    </resultMap>
+
+
+<!-- 시퀀스 가져오기 -->
+    <select id="getSequence" resultType="String">
+        SELECT  TOURSHOP_SEQ.NEXTVAL FROM DUAL
+    </select>
+
+<!-- TOURSHOP MAIN-->
+    <select id="totalPage" >
+        select count(*) from tourShop
+    </select>
+
+    <select id="findAll"  resultMap="tourShopMainResultMap">
+        <![CDATA[ SELECT
+            shopId, imageName, tourTitle, content, tourPrice, location,
+            (SELECT COUNT(*) FROM tourshopreview r WHERE r.shopId = s.shopId) AS review_count
+        FROM(
+                SELECT
+                    s.shopId, s.imageName, s.tourtitle, s.content, s.tourPrice, s.location,
+                    ROW_NUMBER() OVER (ORDER BY s.shopId) AS rn
+                FROM tourshop s
+                WHERE 1=1) s
+        WHERE rn BETWEEN #{startRow} AND #{endRow}]]>
+    </select>
+
+<!--  상세페이지 -->
+    <select id="shopDetail" parameterType="String" resultMap="shopResultMap">
+        SELECT shopId, imagePath, imageName, tourTitle, content, tourPrice, location
+        FROM TOURSHOP
+        WHERE shopId = #{id}
+    </select>
+
+
+<!--  상세페이지 리뷰 -->
+    <select id="shopDetailReview" parameterType="String" resultMap="reviewResultMap">
+        SELECT r.reviewId, r.shopId, r.review, u.id AS author, TO_CHAR(r.created_at, 'YYYY-MM-DD HH:MM') AS create_at, r.parent_comment_id
+        FROM  TOURSHOPREVIEW r
+                 JOIN users u ON r.userId = u.id
+        WHERE r.shopId = #{id}
+        ORDER BY r.reviewId
+    </select>
+
+
+<!--  상품등록  -->
+    <insert id="addProduct" parameterType="org.codelap_spring_project.domain.TourshopInsert">
+        INSERT INTO TOURSHOP (shopId, imageName, imagePath, tourTitle, content, tourPrice,
+                             location  )
+        VALUES(#{shopId}, #{imageName}, #{imagePath}, #{tourTitle}, #{content}, #{tourPrice},
+               #{location})
+    </insert>
+
+
+
+<!--    <select id="selectTourshopById" resultType="org.codelap_spring_project.domain.Tourshop" parameterType="String">-->
+<!--        SELECT * FROM tourShop WHERE shopId = #{shopId}-->
+<!--    </select>-->
+
+
+<!--    <update id="updateTourshop" parameterType="org.codelap_spring_project.domain.Tourshop">-->
+<!--        UPDATE tourShop-->
+<!--        SET imagePath = #{imagePath},-->
+<!--            imageName = #{imageName},-->
+<!--            tourTitle = #{tourTitle},-->
+<!--            content = #{content},-->
+<!--            tourPrice = #{tourPrice},-->
+<!--            location = #{location},-->
+<!--            festivalID = #{festivalID}-->
+<!--        WHERE shopId = #{shopId}-->
+<!--    </update>-->
+
+
+<!--    <delete id="deleteTourshopById" parameterType="String">-->
+<!--        DELETE FROM tourShop WHERE shopId = #{shopId}-->
+<!--    </delete>-->
+
+</mapper>

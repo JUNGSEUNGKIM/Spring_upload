@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.codelap_spring_project.repository.mybatis.FestivalMapper">
+
+<!--    <resultMap id="festivalResultMap" type="hello.itemservice.domain.Festival"/>-->
+
+    <resultMap id="festivalResultMap" type="org.codelap_spring_project.domain.Festival">
+        <result property="festivalid" column="festivalid" />
+        <result property="festivalname" column="festivalname" />
+        <result property="location" column="location" />
+        <result property="startdate" column="startdate" />
+        <result property="enddate" column="enddate" />
+        <result property="description" column="description" />
+        <result property="website" column="website" />
+        <result property="radaddress" column="radaddress" />
+        <result property="jibunaddress" column="jibunaddress" />
+        <result property="latitude" column="latitude" />
+        <result property="longitude" column="longitude" />
+    </resultMap>
+
+    <select id="findAllFestival" resultMap="festivalResultMap">
+        <![CDATA[
+        SELECT *
+        FROM festivals WHERE STARTDATE <= SYSDATE AND ENDDATE >= SYSDATE-14
+        ]]>
+    </select>
+
+    <select id="findAllFestivalth" resultMap="festivalResultMap">
+        SELECT festivalname,festivalname,location
+        FROM festivals
+    </select>
+
+    <select id="findAllFestivalList" resultType="org.codelap_spring_project.domain.FestivalImg">
+        <![CDATA[
+        SELECT f.*, COALESCE(i.image_name, ',') as image_name
+        FROM festivals f left join festival_image i on f.festivalid = i.festivalid WHERE ENDDATE >= SYSDATE
+        ]]>
+    </select>
+
+    <select id="findIdFestivalList" resultType="org.codelap_spring_project.domain.FestivalImg">
+        <![CDATA[
+        SELECT  f.*,  COALESCE(i.image_name, ',') as image_name FROM festivals f left JOIN festival_image i ON f.festivalid = i.festivalid WHERE f.FestivalID=#{festivalid}
+        ]]>
+    </select>
+
+    <select id="findLocFestivalList" resultType="org.codelap_spring_project.domain.FestivalImg">
+        <![CDATA[
+        SELECT f.*,  COALESCE(i.image_name, ',') as image_name FROM festivals f left JOIN festival_image i ON f.festivalid = i.festivalid WHERE (RoadAddress LIKE '%' || #{loc} || '%' OR JibunAddress LIKE '%' || #{loc} || '%') AND  f.ENDDATE >= SYSDATE
+        ]]>
+    </select>
+
+    <select id="findLocationLonlat" resultType="org.codelap_spring_project.domain.FestivalImg">
+        <![CDATA[
+        WITH Boundaries AS (
+            SELECT
+                #{lon} AS center_lon,
+                #{lat} AS center_lat,
+                126.8809728 - (10 / 111) AS min_lon,
+                126.8809728 + (10 / 111) AS max_lon,
+                37.4734848 - (10 / 111) AS min_lat,
+                37.4734848 + (10 / 111) AS max_lat
+            FROM dual
+        )
+        SELECT f.*, COALESCE(i.image_name, ',') AS image_name
+        FROM festivals f
+                 LEFT JOIN festival_image i ON f.festivalid = i.festivalid
+                 JOIN Boundaries b ON f.LONGITUDE BETWEEN b.min_lon AND b.max_lon
+            AND f.LATITUDE BETWEEN b.min_lat AND b.max_lat
+        ]]>
+    </select>
+
+    <select id="findAllMarketList"  resultType="org.codelap_spring_project.domain.Market">
+        <![CDATA[
+        SELECT * FROM market
+        ]]>
+        <if test="latitude != null">
+        <![CDATA[WHERE (6371 * acos(cos(#{latitude}) * cos(LATITUDE) * cos(LONGITUDE - #{longitude}) + sin(#{latitude}) * sin(LATITUDE))) <= 100]]>
+        </if>
+
+    </select>
+
+    <select id="findAllRestaurantsList" resultType="org.codelap_spring_project.domain.Restaurants">
+        <![CDATA[SELECT * from restaurants]]>
+        <if test="latitude != null">
+            <![CDATA[WHERE (6371 * acos(cos(#{latitude}) * cos(LATITUDE) * cos(LONGITUDE - #{longitude}) + sin(#{latitude}) * sin(LATITUDE))) <= 300]]>
+        </if>
+    </select>
+
+    <select id="findIdEvent" parameterType="String" resultType="org.codelap_spring_project.domain.Event">
+        <![CDATA[
+        SELECT * from events where eventid = #{eventid}
+        ]]>
+    </select>
+
+    <select id="findRandom" parameterType="String" resultType="org.codelap_spring_project.domain.Event">
+        <![CDATA[
+        SELECT * FROM (SELECT * FROM Events WHERE (RoadAddress LIKE '%' || #{loc} || '%' OR JibunAddress LIKE '%' || #{loc} || '%') AND StartDate >= SYSDATE ORDER BY DBMS_RANDOM.RANDOM) WHERE rownum <= 4
+        ]]>
+    </select>
+
+    <select id="findDefault" resultType="org.codelap_spring_project.domain.Event">
+        <![CDATA[
+        SELECT * FROM (SELECT * FROM Events ORDER BY DBMS_RANDOM.RANDOM) WHERE rownum <= 4  AND StartDate >= SYSDATE
+        ]]>
+    </select>
+
+    <select id="getLocation" parameterType="String" resultType="org.codelap_spring_project.domain.Festival">
+        <![CDATA[
+        SELECT * FROM Festivals WHERE FestivalID = #{id}
+        ]]>
+    </select>
+
+    <select id="getEventLocation" parameterType="String" resultType="org.codelap_spring_project.domain.Event">
+        <![CDATA[
+        SELECT * FROM events WHERE EVENTID = #{id}
+        ]]>
+    </select>
+
+</mapper>

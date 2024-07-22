@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.codelap_spring_project.repository.mybatis.QaBoarderMapper">
+
+    <resultMap id="qaboarderResultMap" type="org.codelap_spring_project.domain.QaBoarder">
+        <result property="qaid" column="qaid" />
+        <result property="author" column="author" />
+        <result property="title" column="title" />
+        <result property="created_at" column="created_at" />
+        <result property="content" column="content" />
+        <result property="views" column="views" />
+        <result property="likes" column="likes" />
+        <result property="imagepath" column="imagepath" />
+        <result property="imagename" column="imagename" />
+        <result property="festivalid" column="festivalid" />
+    </resultMap>
+
+    <resultMap id="qaboarderMainResultMap" type="org.codelap_spring_project.domain.QaBoarderMain">
+        <result property="qaid" column="qaid" />
+        <result property="author" column="author" />
+        <result property="title" column="title" />
+        <result property="created_at" column="created_at" />
+        <result property="content" column="content" />
+        <result property="views" column="views" />
+        <result property="likes" column="likes" />
+        <result property="imagename" column="imagename" />
+        <result property="festivalid" column="festivalid" />
+        <result property="qacomments_count" column="qacomments_count" />
+    </resultMap>
+
+    <resultMap id="qacommentResultMap" type="org.codelap_spring_project.domain.QaComment">
+        <result property="qacommentid" column="qacommentid" />
+        <result property="qaid" column="qaid" />
+        <result property="author" column="author" />
+        <result property="created_at" column="created_at" />
+        <result property="content" column="content" />
+        <result property="parentcommentid" column="parentcommentid" />
+        <result property="festivalid" column="festivalid" />
+    </resultMap>
+
+    <select id="findAll" resultType="org.codelap_spring_project.domain.QaBoarderMain">
+        <![CDATA[ SELECT
+            qaid, title, author, to_char(created_at, 'YYYY-MM-DD') as created_at, views, likes, content, imagename,
+            (SELECT COUNT(*) FROM qacomment qc WHERE qc.qaid = q.qaid) AS qacomments_count
+        FROM(
+                 SELECT
+                    q.qaid, q.title, u.id AS author, q.created_at, q.views, q.likes, q.content, q.imagename,
+                    ROW_NUMBER() OVER (]]>
+        <if test="startRow != -1">
+            <![CDATA[ ORDER BY q.created_at DESC]]>
+        </if>
+        <if test = "startRow == -1">
+            <![CDATA[ ORDER BY q.likes DESC]]>
+        </if>
+        <![CDATA[ ) AS rn
+                    FROM qa q
+                            JOIN USERS u ON q.userid = u.id
+                    WHERE 1=1) q
+        WHERE rn BETWEEN #{startRow} AND #{endRow}]]>
+    </select>
+
+    <select id="totalPage" >
+        select count(*) from qa
+    </select>
+
+    <select id="detailQaBoard" parameterType="String" resultMap="qaboarderResultMap">
+        SELECT q.qaid, q.title, u.id AS author, q.content, TO_CHAR(q.created_at, 'YYYY-MM-DD') AS created_at,
+               q.views, q.likes, q.imagepath, q.imagename, f.festivalname
+        FROM QA q
+                 JOIN USERS u ON q.userid = u.id
+                 JOIN FESTIVALS f on q.festivalid = f.festivalid
+        WHERE q.qaid = #{qaid}
+    </select>
+
+    <select id="detailQaBoardComment" parameterType="String" resultMap="qacommentResultMap">
+        SELECT qc.qacommentid, qc.qaid, qc.content, u.id AS author, TO_CHAR(qc.created_at, 'YYYY-MM-DD HH:MM') AS create_at, qc.parentcommentid
+        FROM qacomment qc
+                 JOIN users u ON qc.userid = u.id
+        WHERE qc.qaid = #{id}
+        ORDER BY qc.qacommentid
+    </select>
+
+    <delete id="deleteQaBoardComment" parameterType="String">
+        DELETE FROM qacomment WHERE qaid = #{id}
+    </delete>
+
+    <delete id="deleteQaBoard" parameterType="String">
+        DELETE FROM qa WHERE qaid = #{id}
+    </delete>
+
+    <select id="getQaSequence" resultType="String">
+        SELECT qaid_SEQ.NEXTVAL FROM DUAL
+    </select>
+
+    <insert id="createQaBoard" parameterType="org.codelap_spring_project.domain.QaBoarderInsert">
+        INSERT INTO QA (qaid, userid, title, content, imagepath, imagename,festivalid)
+        VALUES(#{qaid}, #{userid}, #{title}, #{content}, #{imagepath}, #{imagename}, #{festivalid})
+    </insert>
+
+    <update id="editQaBoard" parameterType="org.codelap_spring_project.domain.QaBoarderInsert">
+        UPDATE qa SET title = #{title}, content = #{content} WHERE qaid = #{qaid}
+    </update>
+
+    <insert id="addqacomment" parameterType="org.codelap_spring_project.domain.QaCommentInsert">
+        INSERT INTO QACOMMENT (qacommentid, qaid, userid, content, parentcommentid)
+        VALUES (QACOMMENTID_SEQ.nextval, #{qaid}, #{userid}, #{content}, #{parentcommentid})
+    </insert>
+
+    <update id="editqacomment">
+        UPDATE qacomment
+        SET content = #{content}
+        WHERE qacommentid = #{qacommentid}
+    </update>
+
+    <delete id="deleteqacomment" parameterType="String">
+        DELETE FROM qacomment WHERE qacommentid = #{qacommentid} OR parentcommentid = #{qacommentid}
+    </delete>
+</mapper>

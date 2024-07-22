@@ -1,0 +1,171 @@
+
+.aiCockcock .circumscriptionList {
+    margin: 70px 0 0;
+    position: relative;
+    box-sizing: border-box;
+    display: block;
+    unicode-bidi: isolate;
+    word-break: keep-all;
+    list-style: none;
+    font: 13px / 1.4 NotoSansKR, NotoSansJP, "돋움", Dotum, AppleGothic, Sans-serif;
+    color: #666;
+    -webkit-text-size-adjust: none;
+}
+
+.swiperContainer {
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+    font: 13px / 1.4 NotoSansKR, NotoSansJP, "돋움", Dotum, AppleGothic, Sans-serif;
+    color: #666;
+    -webkit-text-size-adjust: none;
+
+}
+
+.leftArea {
+    float: left;
+    width: 260px;
+    padding-right: 30px;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    display: block;
+    unicode-bidi: isolate;
+    word-break: keep-all;
+    list-style: none;
+    font: 13px / 1.4 NotoSansKR, NotoSansJP, "돋움", Dotum, AppleGothic, Sans-serif;
+    color: #666;
+    -webkit-text-size-adjust: none;
+
+}
+
+.stit {
+    display: block;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 34px;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    width: 1200px;
+    word-break: keep-all;
+    list-style: none;
+    font: 13px / 1.4 NotoSansKR, NotoSansJP, "돋움", Dotum, AppleGothic, Sans-serif;
+    -webkit-text-size-adjust: none;
+}
+
+.swiperContainer {
+    padding: 0 0 65px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    box-sizing: border-box;
+    z-index: 1;
+    display: block;
+    unicode-bidi: isolate;
+    word-break: keep-all;
+    font: 13px / 1.4 NotoSansKR, NotoSansJP, "돋움", Dotum, AppleGothic, Sans-serif;
+    color: #666;
+    -webkit-text-size-adjust: none;
+
+}
+.swiperContainer-android .swiperSlide, .swiperWrapper {
+
+    transform: translate3d(0, 0, 0);
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    transition-property: transform, -webkit-transform;
+    box-sizing: content-box;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+    unicode-bidi: isolate;
+    word-break: keep-all;
+    font: 13px / 1.4 NotoSansKR, NotoSansJP, "돋움", Dotum, AppleGothic, Sans-serif;
+    color: #666;
+    -webkit-text-size-adjust: none;
+}
+.swiperWrapper li{
+    margin-right: 20px;
+    width: 25%;
+    flex-shrink: 0;
+    height: 100%;
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: list-item;
+    text-align: -webkit-match-parent;
+    unicode-bidi: isolate;
+    word-break: keep-all;
+    font: 13px / 1.4 NotoSansKR, NotoSansJP, "돋움", Dotum, AppleGothic, Sans-serif;
+    color: #666;
+    -webkit-text-size-adjust: none;
+
+
+}
+.swiperWrapper li a{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-family: NotoSansKR, NotoSansJP, "돋움", Dotum, AppleGothic, Tahoma, Sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    list-style: none;
+    word-break: keep-all;
+    font: 13px / 1.4 NotoSansKR, NotoSansJP, "돋움", Dotum, AppleGothic, Sans-serif;
+    -webkit-text-size-adjust: none;
+}
+.swiperWrapper li a span{
+    cursor: pointer;
+    list-style: none;
+    word-break: keep-all;
+    font: 13px / 1.4 NotoSansKR, NotoSansJP, "돋움", Dotum, AppleGothic, Sans-serif;
+    -webkit-text-size-adjust: none;
+}
+.wantList {
+    padding: 70px 0;
+    margin-top: 70px;
+    background: #f0f5fe;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    position: relative;
+}
+
+
+.sliderContainer {
+    width: 100%;
+    height: auto;
+    padding: 2%;
+
+}
+.slick-arrow {
+    color: green;
+}
+
+.sliderImg{
+    width:100%;
+    height:100%;
+    padding:10%
+}
+
+
+
+
+
+

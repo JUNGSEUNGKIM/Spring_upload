@@ -1,0 +1,643 @@
+/*------------------------------------------------배너*/
+.banner {
+    padding-top: 90px;
+    width: 100%;
+    height: 500px;
+    display: flex; /* Flexbox 사용 */
+    justify-content: flex-end;
+    align-items: center;
+    overflow: hidden;
+    background-image: linear-gradient(to bottom, #a6e1ec, #f1efe9);
+}
+
+
+.banner_letter{
+    /*background-color: #F5B7B1;*/
+    width: 40%; /* 나머지 25%를 차지하도록 설정 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    height: 50px; /* 고정 높이 */
+    margin-bottom: 10px;
+
+}
+.mainText{
+    display: inline-block;
+    padding: 0 15px;
+    height: 30px;
+    line-height: 28px;
+    color: #fff;
+    background: #000;
+    border-radius: 15px 15px 15px 0;
+    font-size: 16px;
+    font-weight: 250;
+    margin-bottom: 30px;
+}
+
+
+.additionalText{
+    font-size: 25px;
+    color: #333;
+    margin-top: 10px;
+    font-weight: 700;
+}
+
+.banner_good {
+    content: '';
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    left:50%;
+    top: 90px;
+    z-index: 10;
+    background: url('./good_150.png') no-repeat;
+    animation: rotate_image 20s linear infinite;
+    transform-origin: 50% 50%;
+}
+.swiper-container {
+    margin: 0 auto;
+    position: absolute;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+}
+
+@keyframes rotate_image {
+    0% {
+        transform: rotate(360deg); /* 회전하지 않도록 초기값을 0으로 설정 */
+    }
+    /*100% {*/
+        /*transform: rotate(360deg); !* 제자리에서 회전하는 값으로 설정 *!*/
+    /*}*/
+}
+
+/*.linkText{*/
+/*    font-size: 12px;*/
+/*    color: black;*/
+/*    margin-top: 5px;*/
+/*    cursor: pointer;*/
+/*    text-decoration: underline;*/
+/*}*/
+
+.controlBtn {
+    margin-top: 300px;
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+}
+
+.controlBtn:hover {
+    /*background-color: #ddd; !* 호버 시 배경색 변경 *!*/
+    color: black; /* 호버 시 텍스트 색상 변경 */
+}
+
+.previous,.next {
+    background-color: #f1f1f1;
+    color: black;
+    margin-top: 300px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 8px 10px;
+    border-radius: 5px;
+}
+
+.linkText{
+    /*background-color: #f1f1f1;*/
+    color: black;
+    border: none;
+    /*font-size: 16px;*/
+    cursor: pointer;
+    padding: 5px 16px;
+    border-radius: 5px;
+    text-decoration: underline;
+    margin-top: 5px;
+
+}
+.banner_img {
+    width: 50%;
+    height: 400px;
+    align-items: center; /* 세로 방향으로 중앙 정렬 */
+    justify-content: center; /* 가로 방향으로 중앙 정렬 */
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    flex-direction: row; /* 세로 방향 배열 */
+    border-radius: 5px;
+    /*box-shadow: 1px 1px 10px black;*/
+
+}
+.custom-slider{
+    box-shadow: 1px 1px 10px black;
+}
+
+
+@media (max-width: 800px) {
+    /* 모바일 화면 또는 좁은 뷰포트에서의 스타일 */
+    .banner {
+        flex-direction: column;
+    }
+
+    .banner_good{
+        display: none;
+    }
+
+    .banner_img {
+        width: 100%; /* 모바일에서는 전체 너비 */
+        height: 270px;
+        position: relative;
+        overflow: hidden;
+        list-style: none;
+        padding: 0;
+        z-index: 1;
+
+    }
+    .banner_letter {
+        width: 100%; /* 모바일에서는 전체 너비 */
+        height: 100px;
+        position: relative;
+        overflow: hidden;
+        list-style: none;
+        padding: 0;
+        z-index: 1;
+    }
+
+    .banner{
+        padding-top: 0; /* 마진 탑을 없애는 스타일 */
+        /*padding-bottom:70PX;*/
+    }
+
+
+    .banner_letter {
+        order: 2;
+        text-align: center;
+        /*display: none; !* 버튼 숨김 *!*/
+    }
+
+    .banner_letter button {
+        margin: 0 10px; /* 버튼 간격을 조정 */
+    }
+
+    .banner_letter_text {
+        padding: 0 8px;
+        height: 20px;
+        /*line-height: 22px;*/
+        border-radius: 10px 10px 10px 0;
+        font-size: 11px;
+    }
+
+    .controlBtn {
+        font-size: 20px;
+
+
+    }
+    .banner_letter button {
+        display: none; /* 버튼 숨김 */
+    }
+
+    .linkText{
+        display: none;
+    }
+}
+
+@media (max-width: 800px) {
+    .mainText{
+        position: absolute; /* 배너 이미지 내에서 절대적 위치 지정 */
+        bottom: 20px; /* 아래쪽에 위치 */
+        left: 50%; /* 가운데 정렬을 위해 왼쪽에서 절반 지점부터 위치 */
+        transform: translateX(-50%); /* 가운데 정렬 */
+        z-index: 1; /* 다른 요소 위에 위치하도록 설정 */
+        width: 80%; /* 텍스트 너비 조정 */
+        text-align: center; /* 텍스트 가운데 정렬 */
+        margin-top: 30px;
+    }
+    .additionalText{
+        margin-top: 14px;
+    }
+    .container {
+        margin-top: 0px;
+    }
+
+}
+
+/*-------------------------------------------------날씨, 추천글 부모박스*/
+.best {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /*background-color: #e4b9c0;*/
+    justify-content: center;
+    margin: 0 auto;
+    width: 80%;
+
+}
+
+/*날씨, 추천글 박스*/
+.best_box {
+    display: flex;
+    flex: 1;
+    margin: 25px;
+    height: 300px; /* 고정 높이 */
+    /*background-color: #ac2925;*/
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .best {
+        flex-direction: column; /* 세로 방향 배열 */
+        align-items: center; /* 세로축 중앙 정렬 */
+    }
+
+    .best_box {
+        flex: none;
+        width: 80%;
+        margin: 10px auto;
+    }
+}
+/*-----------------------------------------------------------인기글*/
+.navigation_bar {
+    width: 80%;
+    display: flex;
+    justify-content: space-around; /* 요소들을 동일한 간격으로 배치 */
+    align-items: center; /* 요소들을 수직 가운데 정렬 */
+    /*background-color: #a6e1ec; !* 원하는 배경색 *!*/
+    /*padding-bottom: 20px;*/
+    content: '';
+    /*box-shadow: 0px 2px 4px rgba(99, 176, 206, 0.5);*/
+
+}
+
+.navigation_bar button {
+    /*border-radius: 20px;*/
+    width: 80%;
+    padding: 10px 20px; /* 버튼 내부 여백 설정 */
+    font-size: 16px; /* 버튼 텍스트 크기 설정 */
+    border: none; /* 테두리 제거 */
+    background-color: #a6e1ec; /* 버튼 배경색 */
+    cursor: pointer; /* 마우스 커서 모양 설정 */
+    transition: background-color 0.3s ease; /* 배경색 변화에 애니메이션 적용 */
+    box-shadow: 0px 4px 5px rgba(99, 176, 206, 0.5);
+    color: #ffffff;
+}
+
+
+
+.navigation_bar button:first-child {
+    border-top-left-radius: 20px; /* 왼쪽 상단 코너 라운드 처리 */
+    border-bottom-left-radius: 20px; /* 왼쪽 하단 코너 라운드 처리 */
+}
+
+.navigation_bar button:last-child {
+    border-top-right-radius: 20px; /* 오른쪽 상단 코너 라운드 처리 */
+    border-bottom-right-radius: 20px; /* 오른쪽 하단 코너 라운드 처리 */
+}
+
+
+.navigation_bar button:hover {
+    background-color: #59a6c6; /* 마우스 호버 시 배경색 변경 */
+}
+
+.navigation_bar button.activeOption {
+    font-weight: bold; /* 활성화된 버튼 텍스트를 두껍게 설정 */
+}
+
+.arrow {
+    position: absolute;
+    bottom: -10px; /* 버튼 아래로 조절 */
+    left: 50%; /* 가운데 정렬 */
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #a6e1ec; /* 원하는 배경색 */
+}
+
+
+.popular {
+    display: flex;
+    flex-direction: column; /* 세로 방향으로 변경 */
+    align-items: center; /* 세로 중앙 정렬 */
+    justify-content: center; /* 요소들을 컨테이너 중앙에 배치 */
+    /*background-color: #D6EAF8;*/
+    margin: 0 auto;
+    width: 80%;
+}
+
+.resetStyle {
+    display: unset;
+    flex-direction: unset;
+    align-items: unset;
+    justify-content: unset;
+    margin: unset;
+    width: unset;
+    padding: unset;
+}
+
+
+.popular_title_container {
+    display: flex;
+    flex-direction: column; /* 제목과 부제목을 세로로 배치 */
+    align-items: center; /* 세로 축 중앙 정렬 */
+    width: 100%; /* 전체 너비 사용 */
+    margin-bottom: 20px; /* 박스들과의 간격 */
+}
+
+.popular_box p {
+    margin: 5px 0;
+}
+
+.festival_image_container, .Eat_place_image_container, .market_image_container {
+    position: relative;
+    overflow: hidden;
+    height: 100%; /* 박스의 높이에 따라 이미지 크기 조정 */
+}
+
+.festival_image, .Eat_place_image, .market_image {
+    display: block;
+    width: 100%;
+    height: 100%; /* 박스의 높이에 맞추기 */
+    transition: transform 0.3s ease;
+    border-radius: 5px; /* 이미지 모서리 둥글게 */
+    object-fit: cover; /* 이미지를 박스에 맞추고 비율 유지 */
+}
+
+.festival_info, .Eat_place_info, .market_info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    padding: 10px;
+    box-sizing: border-box;
+    transition: transform 0.5s ease;
+    flex-grow: 1;
+    border-radius: 0 0 5px 5px;
+}
+
+
+.popular_boxes_container {
+    display: flex;
+    flex-direction: row; /* 가로 방향으로 박스 배치 */
+    justify-content: flex-start; /* 왼쪽 정렬로 변경 */
+    width: 100%;
+    transition: transform 0.3s ease; /* 부드러운 전환 효과 */
+}
+
+
+.popular_main_title {
+    font-size: 24px; /* 주 제목 크기 */
+    font-weight: bold; /* 글씨 굵기 */
+    color: #333; /* 글씨 색상 */
+    margin-right: 20px; /* 오른쪽 여백 */
+}
+
+.popular_sub_title {
+    font-size: 16px; /* 부 제목 크기 */
+    color: #666; /* 글씨 색상 */
+
+
+}
+
+.popular_box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 calc(25% - 20px); /* 모든 박스가 동일한 비율로 나누어짐 */
+    margin: 10px;
+    height: 250px;
+    box-sizing: border-box;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    transition: all .7s;
+    border-radius: 5px;
+    position: relative; /* 상대 위치 설정 */
+}
+
+.popular_box:hover {
+    transform: scale(1.1); /* 확대 효과 */
+    z-index: 10; /* 다른 요소 위에 위치 */
+    background-color: #D6EAF8;
+}
+
+.popular_box:not(:hover) {
+    transform: scale(0.9); /* 나머지 박스는 축소 효과 */
+    opacity: 0.8; /* 투명도를 줄여 다른 박스 강조 */
+}
+.randomButton {
+    position: relative; /* 상대적인 위치 설정 */
+    top: 0; /* 기본 위치를 상단으로 지정 */
+    margin-top: 5px; /* 상단 여백 설정 */
+    padding: 5px 10px; /* 내부 여백 */
+    border: none; /* 테두리 없음 */
+    border-radius: 5px; /* 모서리 둥글게 */
+    font-size: 14px; /* 폰트 크기 */
+    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+    transition: background-color 0.3s ease; /* 배경색 변경 효과 */
+    color: black;
+    /*margin-top: 5px;*/
+    text-decoration: underline;
+}
+
+.moreButton{
+    position: relative; /* 상대적인 위치 설정 */
+    top: 0; /* 기본 위치를 상단으로 지정 */
+    margin-top: 5px; /* 상단 여백 설정 */
+    padding: 5px 10px; /* 내부 여백 */
+    border: none; /* 테두리 없음 */
+    border-radius: 5px; /* 모서리 둥글게 */
+    font-size: 14px; /* 폰트 크기 */
+    cursor: pointer; /* 마우스 커서를 포인터로 변경 */
+    transition: background-color 0.3s ease; /* 배경색 변경 효과 */
+    color: black;
+    /*margin-top: 5px;*/
+    text-decoration: underline;
+    left: 220%;
+}
+
+
+@media (max-width: 768px) {
+    .popular_box {
+        width: 80%; /* 모바일에서는 너비 80%로 조절 */
+        margin: 5px auto; /* 상하 10px, 좌우 자동 */
+        height: 200px; /* 높이 조정 */
+
+    }
+    .randomButton,.moreButton {
+        display: none;
+    }
+    .popular_box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* 이미지를 비율유지하며 박스에 맞게 조정 */
+        border-radius: 5px; /* 이미지 모서리 둥글게 */
+    }
+}
+
+/*.insta {*/
+/*    padding-top: 200px;*/
+/*    background-color: #A569BD;*/
+/*    width: 80%;*/
+/*    height: 300px;*/
+/*    margin: 0 auto;*/
+/*}*/
+
+/*-------------------------*/
+.festival_name, .Eat_place_name, .market_name {
+    font-size: 14px; /* 일정한 크기로 설정 */
+    font-weight: bold; /* 글씨 굵기 */
+    margin-bottom: 10px; /* 아래 여백 */
+    transition: transform 0.5s ease; /* 슬라이드 모션 추가 */
+}
+
+.mobileOnlyDetails {
+    display: none; /* 모바일 화면에서는 숨겨질 스타일 */
+}
+
+.desktopOnlyDetails {
+    display: block; /* 웹 화면에서만 표시될 스타일 */
+}
+
+.festival_description,.market_description,.Eat_place_description {
+    max-height: 0; /* 초기에 숨겨진 상태 */
+    overflow: hidden; /* 내용이 넘칠 경우 숨김 */
+    transition: max-height 0.3s ease; /* 부드러운 나타나기 효과 */
+}
+
+/* 마우스를 올렸을 때 축제 내용 표시 */
+.festival_info:hover .festival_description,.market_description,.market_info:hover {
+    display: block;
+}
+.popular_box:hover .festival_description,.market_description .Eat_place_description{
+    max-height: 200px; /* 축제 내용이 확장되는 최대 높이 */
+    overflow-y: auto; /* 텍스트가 내용을 넘어갈 경우 스크롤바 추가 */
+}
+
+.hiddenOnHover {
+    max-height: 0; /* 초기에는 숨김 */
+    overflow: hidden; /* 내용이 넘칠 경우 숨김 */
+}
+
+/* popular_box에 호버 시 축제 내용 확장 스타일 추가 */
+.popular_box:hover .hiddenOnHover {
+    max-height: 200px; /* 호버 시 텍스트가 확장되는 최대 높이 */
+    overflow-y: auto; /* 내용이 넘칠 경우 스크롤바 추가 */
+}
+
+.popular_box:hover .festival_info,
+.popular_box:hover .Eat_place_info,
+.popular_box:hover .market_info {
+    bottom: 0; /* 마우스를 올렸을 때 화면 하단에 고정 */
+}
+
+.removePadding {
+    padding: 0;
+}
+
+/* 날씨 섹션 스타일------------------------------------------------------ */
+.weather {
+    display: flex; /* Flexbox 사용 */
+    justify-content: space-between; /* 좌우 정렬 */
+    align-items: flex-start;
+    padding: 20px; /* 내부 여백 */
+    background-color: #f0f0f0; /* 배경색 */
+    border-radius: 10px; /* 모서리 둥글게 */
+    flex-direction: row;
+}
+
+/* 스타일 추가: 왼쪽 지역 이미지 컨테이너 */
+.weather_left {
+    flex: 1; /* Flexbox에서 동일한 너비로 설정 */
+    margin-right: 20px; /* 오른쪽 여백 */
+    width: 45%;
+}
+
+/* 스타일 추가: 지역 이미지 */
+.weather_image {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+.location_name {
+    margin-bottom: 10px;
+}
+
+/* 스타일 추가: 오른쪽 날씨 정보 컨테이너 */
+.weather_right {
+    flex: 2; /* Flexbox에서 2배의 너비 설정 */
+    width: 45%;
+}
+
+/* 스타일 수정: 날씨 카드 */
+.weather_card {
+    background-color: #fff; /* 배경색 */
+    border-radius: 10px; /* 모서리 둥글게 */
+    padding: 20px; /* 내부 여백 */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+}
+
+/* 스타일 추가: 지역 이름 */
+.location_name {
+    font-size: 24px; /* 폰트 크기 */
+    font-weight: bold; /* 글씨 굵기 */
+    margin-bottom: 10px; /* 아래 여백 */
+}
+
+/* 스타일 추가: 날씨 상세 정보 */
+.weather_info {
+    margin-top: 20px; /* 위쪽 여백 */
+}
+
+/*스타일 추가: 날씨 정보 항목 */
+.weather_item {
+    margin-bottom: 10px; /* 아래 여백 */
+    font-size: 16px; /* 폰트 크기 */
+}
+
+/* 스타일 추가: 날씨 아이콘 */
+.weather_icon {
+    width: 50px; /* 아이콘 너비 */
+    height: 50px; /* 아이콘 높이 */
+    margin-right: 10px; /* 오른쪽 여백 */
+}
+
+.city_select {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    appearance: none;
+    background-color: #fff;
+    cursor: pointer;
+}
+.location_select {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    appearance: none;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.weather_text {
+    margin-bottom: 10px;
+}

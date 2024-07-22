@@ -1,0 +1,703 @@
+
+/* TITLE */
+.title_container {
+    padding-top: 80px;
+}
+
+.area_choice_text {
+    /*background-color: #f1d398;*/
+    width: 90%;
+    height: 50%;
+    text-align: left;
+    padding-top: 12px;
+    padding-left: 10px;
+}
+
+.main_title {
+    padding: 30px 0px;
+    box-shadow: 0px 0px 35px 0px #e9e9e9;
+    position: relative;
+    background-color: white;
+}
+
+
+/* ##################### Festival ##################### */
+#festivalPage, #festival_details {
+
+}
+
+
+.festival_container {
+    width: 100%;
+    background-color: white;
+    /*margin-top: 0px;*/
+    /*position: relative;*/
+}
+
+
+/* CONTENT */
+.festival_content {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    /*display: grid;*/
+    place-items: center;
+    margin: 0 auto;
+}
+
+.festival_area, .festival_information, .festival_keyword, .festival_insta {
+    width: 90%;
+    height: 45em;
+    margin: 0 auto;
+}
+
+.festival_area {
+    width: 90%;
+    height: 28em;
+    padding-left: 70px;
+    display: grid;
+    place-items: center;
+    /*background-color: #89f12f;*/
+    margin: 0 auto;
+    grid-template-columns: repeat(1, 1fr); /* 데스크탑 환경에서 가로로 1개씩 나열되도록 설정합니다. */
+    grid-auto-rows: auto; /* 데스크탑 환경에서 세로로 1개씩 나열되도록 설정합니다. */
+    grid-gap: 1em;
+}
+
+
+.area_choice {
+    /*background-color: white;*/
+    width: 90%;
+    height: 80%;
+    align-items: center;
+}
+
+.event_container {
+    margin: 0 auto;
+    width: 100%;
+    height: 250px;
+    /*height: auto;*/
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* 데스크탑 환경에서 가로로 1개씩 나열되도록 설정합니다. */
+    grid-auto-rows: auto; /* 데스크탑 환경에서 세로로 1개씩 나열되도록 설정합니다. */
+    grid-gap: 1em;
+}
+
+@media screen and (max-width: 768px) {
+    .festival_area {
+        margin: 0 auto;
+        padding: 0;
+        height: 20em;
+    }
+    .event_container {
+        flex-direction: column; /* 세로 방향 배열 */
+        align-items: center; /* 세로축 중앙 정렬 */
+    }
+
+    .ModalBox {
+        margin-top: 3em;
+        overflow: auto;
+        /*width: 35em;*/
+        width: 100%;
+        /*flex-direction: column; !* 세로 방향 배열 *!*/
+        /*align-items: center; !* 세로축 중앙 정렬 *!*/
+    }
+
+    .zone div {
+        flex: none;
+        width: 80%;
+        margin: 10px auto;
+    }
+
+    .detailLink {
+        padding-top: 2em;
+    }
+
+    .festival_information {
+        height: auto;
+    }
+
+    .festival_information h3 {
+        margin-bottom: 1em;
+    }
+}
+
+.event_container h3 {
+    text-align: left;
+    /*margin: 5%;*/
+    /*margin-bottom: 1%;*/
+}
+
+.event_container .zone h4 {
+    /*text-align: center;*/
+    /*margin-bottom: 5px;*/
+    font-weight: bold;
+}
+
+.event_container .zone {
+    /*width: 100%;*/
+    width: calc(100% - 4em); /* 오른쪽과 왼쪽의 padding 값에 해당하는 2em을 제외한 너비 */
+    height: 100%;
+    margin: 2em;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 30px 30px 50px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.zone:hover{
+    background-color: rgba(250, 242, 204, 0.18);
+}
+
+.zone span {
+    display: inline-block;
+    padding: 0 1em;
+    height: 25px;
+    line-height: 28px;
+    color: #fff;
+    background: #000;
+    border-radius: 15px 15px 15px 0;
+    font-size: 12px;
+    font-weight: 300;
+    /*margin-bottom: 40px;*/
+}
+
+.zone a {
+    position: relative;
+    text-decoration: underline;
+    /*margin: 4em 0 0 15em;*/
+    /*text-align: right;*/
+    /*margin-left: auto;*/
+}
+
+.detailLink {
+    position: relative;
+    text-decoration: underline;
+    margin: 2em 0 0 15em;
+    cursor:pointer;
+    /*text-align: right;*/
+    /*margin-left: auto;*/
+}
+
+.region_title {
+    text-align: center;
+}
+
+.festival_information{
+    /*background-color: #fc5794;*/
+    align-items: center;
+    /*display: grid;*/
+    /*place-items: center;*/
+    margin-top: 10em;
+    justify-content: center;
+}
+
+.info_title {
+    height: 10%;
+    background-color: white;
+    place-items: center;
+
+}
+
+.info_box {
+    /*background-color: yellow;*/
+    width: 90%;
+    height: 100%;
+    display: inline-block;
+    /*align-items: center;*/
+}
+
+.info {
+    width: 20%;
+    height: 80%;
+    background-color: white;
+    margin: 0 auto;
+}
+
+#info_slide {
+    max-width: 100%;
+    max-height: 100%;
+    height: 40em;
+    border: 2px solid rgba(241, 220, 104, 0.32);
+    border-radius:15px;
+
+    @media screen and (max-width: 768px) {
+        height: unset;
+    }
+}
+
+.festival_keyword{
+    background-color: #ff9900;
+}
+
+.festival_insta{
+    background-color: #9b59b6;
+}
+
+
+
+
+
+
+/* ##################### FestivalDetails ##################### */
+
+@media screen and (max-width: 768px) {
+    .festival_buttonOverlay {
+        left: unset !important;
+        right: -49rem;
+    }
+
+    .info_container {
+        margin-left: unset !important;
+    }
+
+    .details_festival_info {
+        justify-content: center; /* 수평 가운데 정렬 */
+    }
+
+    .details_festival_img {
+        margin: 0 auto !important;
+        justify-content: center; /* 수평 가운데 정렬 */
+    }
+
+    .details_festival_img img{
+        max-width: 300px; /* 이미지의 최대 너비 지정 */
+        width: 100%; /* 너비를 100%로 지정하여 부모 요소에 맞게 조정 */
+        height: auto; /* 세로 크기를 가로 크기에 비례하여 자동으로 조정 */
+        justify-content: center; /* 수평 가운데 정렬 */
+    }
+
+
+}
+
+#festival_details {
+    width: 100%;
+    background-color: white;
+    margin-top: 0px;
+    position: relative;
+}
+
+.details_container {
+    width: 100%;
+    background-color: white;
+    margin-top: 0px;
+    position: relative;
+}
+
+
+/* CONTENT */
+.details_content {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: grid;
+    place-items: center;
+}
+
+.festival_no_data_message {
+    display: flex;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+    height: 100%;
+    /*font-weight: bold;*/
+    font-size: 2rem;
+}
+
+.details_festival_info, .festival_map, .regional_market, .regional_yumyum, .details_insta {
+    width: 90%;
+    height: 30em;
+    margin: 1em;
+}
+
+hr {
+    border-color: black;
+    border-width: 2px;
+}
+
+.details_festival_info {
+    /*background-color: rgba(137, 191, 206, 0.2);*/
+    background-color: white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    text-align: left;
+    padding: 20px 20px;
+    height: 40em;
+}
+
+.info_container {
+    display: flex;
+    margin-left: 30em;
+}
+
+.info_details{
+    margin-top: 10em;
+}
+
+.details_festival_img {
+    /*background-color: yellow;*/
+    margin-left: 10em;
+}
+
+.details_festival_img img{
+    max-width: 300px; /* 이미지의 최대 너비 지정 */
+    width: 100%; /* 너비를 100%로 지정하여 부모 요소에 맞게 조정 */
+    height: auto; /* 세로 크기를 가로 크기에 비례하여 자동으로 조정 */
+}
+
+.label {
+    margin-right: 30px; /* 레이블과 데이터 사이의 간격을 조절합니다. */
+}
+
+.festival_map{
+    /*background-color: #2ecc71;*/
+}
+
+.mapContainer{
+    position: relative;
+}
+
+.map {
+    width: 100%;
+    height: 100%;
+}
+
+.festival_buttonOverlay {
+    /*background-color: rgba(0, 0, 0, 0.58);*/
+    width: 200px;
+    /*padding: 35px;*/
+    position: relative;
+    top: 10px;
+    left: 108em;
+    z-index: 1;
+}
+
+.festival_buttonOverlay button {
+    background-color: #fcf4d7;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    /*color: #333;*/
+    padding: 2px 8px;
+    margin: 2px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.festival_buttonOverlay button:hover {
+    background-color: #d4e1ce;
+}
+
+#mapwrap{position:relative;overflow:hidden;}
+.category, .category *{margin:0;padding:0;color:#000;}
+.category {position:absolute;overflow:hidden;top:10px;left:10px;width:150px;height:50px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:12px;text-align:center;background-color:#fff;}
+.category .menu_selected {background:#FF5F4A;color:#fff;border-left:1px solid #915B2F;border-right:1px solid #915B2F;margin:0 -1px;}
+.category li{list-style:none;float:left;width:50px;height:45px;padding-top:5px;cursor:pointer;}
+.category .ico_comm {display:block;margin:0 auto 2px;width:22px;height:26px;background:url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/category.png') no-repeat;}
+.category .ico_coffee {background-position:-10px 0;}
+.category .ico_store {background-position:-10px -36px;}
+.category .ico_carpark {background-position:-10px -72px;}
+
+.regional_market{
+    /*background-color: rgb(230, 241, 244);*/
+    text-align: left;
+    padding: 20px 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.regional_market button {
+    background-color: rgba(211, 180, 137, 0.18);
+    border-radius: 5px;
+    border: none;
+    font-weight: 600;
+    color: #595959;
+    justify-content: space-between;
+    padding: 0.3em 0.5em;
+    margin: 3px;
+    margin-left: 1em;
+}
+
+.regional_market button:hover {
+    background-color: rgba(117, 157, 108, 0.15);
+}
+
+.market_container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    /*justify-content: space-between;*/
+}
+
+.market_item {
+    margin: 2em;
+    width: 35em;
+    background-color: rgba(255, 255, 255, 0.92);
+    /*border: 2px solid black;*/
+    border-radius: 10px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+    padding: 2% 0 2% 1%;
+
+    @media screen and (max-width: 768px) {
+        width: 90%;
+        margin: 3em auto;
+        padding: 2em;
+    }
+}
+
+.regional_yumyum{
+    /*background-color: rgb(230, 241, 244);*/
+    /*border:  2px solid #fdfd9e;*/
+    /*border-radius: 15px;*/
+    text-align: left;
+    padding: 20px 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.regional_yumyum button {
+    background-color: rgba(211, 180, 137, 0.18);
+    border-radius: 5px;
+    border: none;
+    font-weight: 600;
+    color: #595959;
+    justify-content: space-between;
+    padding: 0.3em 0.5em;
+    margin: 3px;
+    margin-left: 1em;
+}
+
+.regional_yumyum button:hover {
+    background-color: rgba(117, 157, 108, 0.15);
+}
+
+.restaurant_container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    /*justify-content: space-between;*/
+}
+
+.restaurant_item {
+    margin: 2em;
+    width: 35em;
+    background-color: rgba(255, 255, 255, 0.92);
+    /*border: 2px solid black;*/
+    border-radius: 10px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+    padding: 2% 0 2% 1%;
+
+    @media screen and (max-width: 768px) {
+        width: 90%;
+        margin: 3em auto;
+        padding: 2em;
+    }
+}
+
+.details_insta{
+    background-color: #f0eee8;
+}
+
+
+/* ##################### EventDetails ##################### */
+
+@media screen and (max-width: 768px) {
+    .event_buttonOverlay {
+        left: unset !important;
+        /*top: 5em;*/
+        /*right: -48rem;*/
+        display: none;
+    }
+
+    /*.info_container {*/
+    /*    margin-left: unset !important;*/
+    /*}*/
+
+    /*.details_festival_info {*/
+    /*    justify-content: center; !* 수평 가운데 정렬 *!*/
+    /*}*/
+
+    /*.details_festival_img {*/
+    /*    margin: 0 auto !important;*/
+    /*    justify-content: center; !* 수평 가운데 정렬 *!*/
+    /*}*/
+
+    /*.details_festival_img img{*/
+    /*    max-width: 300px; !* 이미지의 최대 너비 지정 *!*/
+    /*    width: 100%; !* 너비를 100%로 지정하여 부모 요소에 맞게 조정 *!*/
+    /*    height: auto; !* 세로 크기를 가로 크기에 비례하여 자동으로 조정 *!*/
+    /*    justify-content: center; !* 수평 가운데 정렬 *!*/
+    /*}*/
+}
+
+#events_details {
+    width: 100%;
+    background-color: white;
+    margin-top: 0px;
+    position: relative;
+}
+
+.event_details_container {
+    width: 100%;
+    background-color: white;
+    margin-top: 0px;
+    position: relative;
+}
+
+/* CONTENT */
+.details_content {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: grid;
+    place-items: center;
+}
+
+.event_no_data_message {
+    display: flex;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+    height: 100%;
+    /*font-weight: bold;*/
+    font-size: 2rem;
+}
+
+.details_event_info, .event_map, .event_regional_market, .event_regional_yumyum {
+    width: 90%;
+    height: 30em;
+    margin: 1em;
+}
+
+.details_event_info {
+    /*background-color: rgba(206, 137, 174, 0.2);*/
+    background-color: white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    height: 25em;
+    text-align: left;
+    padding: 20px 20px;
+}
+
+.label {
+    margin-right: 30px; /* 레이블과 데이터 사이의 간격을 조절합니다. */
+}
+
+.festival_map{
+    /*background-color: #2ecc71;*/
+}
+
+.mapContainer{
+    position: relative;
+}
+
+.map {
+    width: 100%;
+    height: 100%;
+}
+
+.event_buttonOverlay {
+    /*background-color: rgba(0, 0, 0, 0.58);*/
+    width: 200px;
+    position: relative;
+    top: 10px;
+    left:  1500px;
+    z-index: 1;
+}
+
+.event_buttonOverlay button {
+    background-color: #f0eee8;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    color: #333;
+    padding: 2px 8px;
+    margin: 2px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.event_buttonOverlay button:hover {
+    background-color: #ddd;
+}
+
+.event_regional_market{
+    /*background-color: rgb(230, 241, 244);*/
+    text-align: left;
+    padding: 20px 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.event_regional_market button {
+    background-color: rgba(213, 133, 18, 0.18);
+    border-radius: 5px;
+    border: none;
+    font-weight: 600;
+    justify-content: space-between;
+    padding: 0.5em 0.8em;
+    margin: 3px;
+    margin-left: 1em;
+}
+
+.event_regional_market button:hover {
+    background-color: rgba(41, 122, 21, 0.15);
+}
+
+.event_market_container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    /*justify-content: space-between;*/
+}
+
+.event_market_item {
+    margin: 2em;
+    width: 35em;
+    background-color: rgba(255, 255, 255, 0.92);
+    /*border: 2px solid black;*/
+    border-radius: 10px;
+    padding: 2% 0 2% 1%;
+}
+
+.event_regional_yumyum{
+    /*background-color: rgba(213, 233, 183, 0.76);*/
+    /*border:  2px solid #fdfd9e;*/
+    /*border-radius: 15px;*/
+    text-align: left;
+    padding: 20px 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.event_regional_yumyum button {
+    background-color: rgba(213, 133, 18, 0.18);
+    border-radius: 5px;
+    border: none;
+    font-weight: 600;
+    justify-content: space-between;
+    padding: 0.5em 0.8em;
+    margin: 3px;
+    margin-left: 1em;
+}
+
+.event_regional_yumyum button:hover {
+    background-color: rgba(41, 122, 21, 0.15);
+}
+
+.event_restaurant_container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.event_restaurant_item {
+    margin: 2em;
+    width: 35em;
+    background-color: rgba(255, 255, 255, 0.92);
+    /*border: 2px solid black;*/
+    border-radius: 15px;
+    padding: 2% 0 2% 1%;
+}

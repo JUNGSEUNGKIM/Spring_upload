@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.codelap_spring_project.repository.mybatis.BoarderMapper">
+
+    <resultMap id="boarderResultMap" type="org.codelap_spring_project.domain.Boarder">
+        <result property="boarder_code" column="boarder_code" />
+        <result property="author" column="author" />
+        <result property="title" column="title" />
+        <result property="created_at" column="created_at" />
+        <result property="content" column="content"  />
+        <result property="views" column="views" />
+        <result property="likes" column="likes" />
+        <result property="image_path" column="image_path" />
+        <result property="image_name" column="image_name" />
+        <result property="festivalname" column="festivalname" />
+    </resultMap>
+
+    <resultMap id="boarderMainResultMap" type="org.codelap_spring_project.domain.BoarderMain">
+        <result property="boarder_code" column="boarder_code" />
+        <result property="author" column="author" />
+        <result property="title" column="title" />
+        <result property="created_at" column="created_at" />
+        <result property="content" column="content"  />
+        <result property="views" column="views" />
+        <result property="likes" column="likes" />
+        <result property="image_name" column="image_name" />
+        <result property="comments_count" column="comments_count" />
+    </resultMap>
+
+    <resultMap id="commentResultMap" type="org.codelap_spring_project.domain.Comment">
+        <result property="comment_id" column="comment_id" />
+        <result property="boarder_code" column="boarder_code" />
+        <result property="content" column="content" />
+        <result property="author" column="author" />
+        <result property="create_at" column="create_at"  />
+        <result property="parent_comment_id" column="parent_comment_id" />
+
+    </resultMap>
+
+
+
+    <select id="findAll"  resultMap="boarderMainResultMap">
+        <![CDATA[ SELECT
+            boarder_code, title, author, to_char(created_at, 'YYYY-MM-DD') as created_at, views, likes, content,image_name,
+            (SELECT COUNT(*) FROM boarder_comments c WHERE c.boarder_code = b.boarder_code) AS comments_count
+        FROM(
+                SELECT
+                    b.boarder_code, b.title, u.id AS author, b.created_at, b.views, b.likes, b.content,b.image_name,
+                    ROW_NUMBER() OVER (]]>
+                    <if test="startRow != -1">
+                   <![CDATA[ ORDER BY b.created_at DESC]]>
+                    </if>
+                    <if test="startRow == -1">
+                        <![CDATA[ ORDER BY b.likes DESC]]>
+                    </if>
+                    <![CDATA[ ) AS rn
+                FROM boarder b
+                         JOIN USERS u ON b.user_id = u.id
+                WHERE 1=1) b
+        WHERE rn BETWEEN #{startRow} AND #{endRow}]]>
+    </select>
+
+    <select id="totalPage" >
+        select count(*) from boarder
+    </select>
+
+
+    <select id="detailBoard" parameterType="String" resultMap="boarderResultMap">
+        SELECT b.boarder_code, b.title, u.id AS author, b.content, TO_CHAR(b.created_at, 'YYYY-MM-DD') AS created_at,
+               b.views, b.likes, b.image_path, b.image_name,f.festivalname
+        FROM BOARDER b
+                 JOIN USERS u ON b.user_id = u.id
+                 JOIN FESTIVALS f on b.festival_code = f.festivalid
+        WHERE b.boarder_code = #{id}
+    </select>
+
+    <select id="detailBoardComment" parameterType="String" resultMap="commentResultMap">
+        SELECT c.comment_id, c.boarder_code, c.content, u.id AS author, TO_CHAR(c.create_at, 'YYYY-MM-DD HH:MM') AS create_at, c.parent_comment_id
+        FROM boarder_comments c
+                 JOIN users u ON c.user_id = u.id
+        WHERE c.boarder_code = #{id}
+        ORDER BY c.comment_id
+    </select>
+
+    <delete id="deleteBoardComment" parameterType="String">
+        DELETE FROM boarder_comments WHERE boarder_code = #{id}
+    </delete>
+
+    <delete id="deleteBoard" parameterType="String">
+        DELETE FROM boarder WHERE boarder_code = #{id}
+    </delete>
+
+    <select id="getSequence" resultType="String">
+        SELECT BOARDER_CODE_SEQ.NEXTVAL FROM DUAL
+    </select>
+
+
+    <insert id="createBoard" parameterType="org.codelap_spring_project.domain.BoaderInsert">
+        INSERT INTO BOARDER (boarder_code, user_id, title, content, image_path,
+                             image_name,festival_code  )
+        VALUES(#{boarder_code}, #{user_id}, #{title}, #{content}, #{image_path},
+                  #{image_name}, #{festival_code})
+    </insert>
+
+    <update id="editBoarder" parameterType="org.codelap_spring_project.domain.BoaderInsert">
+        UPDATE boarder SET title = #{title}, content = #{content} WHERE boarder_code = #{boarder_code}
+    </update>
+
+    <insert id="addcomment" parameterType="org.codelap_spring_project.domain.CommentInsert">
+        INSERT INTO BOARDER_COMMENTS (comment_id, boarder_code, user_id, content, parent_comment_id)
+        VALUES (comment_id_seq.nextval, #{boarder_code}, #{user_id}, #{content}, #{parent_comment_id})
+    </insert>
+
+    <update id="editComment" parameterType="org.codelap_spring_project.domain.CommentInsert">
+        UPDATE BOARDER_COMMENTS SET content = #{content} WHERE comment_id = #{comment_id}
+    </update>
+
+    <delete id="deletecomment" parameterType="String">
+        DELETE FROM boarder_comments WHERE comment_id = #{comment_id} OR parent_comment_id = #{comment_id}
+    </delete>
+
+</mapper>
